@@ -113,6 +113,16 @@ public class DefaultImportRegistry implements ImportRegistry {
                     (lookup, props) -> new OSMSmoothnessParser(
                             lookup.getEnumEncodedValue(Smoothness.KEY, Smoothness.class))
             );
+        else if (Shade.KEY.equals(name))
+            return ImportUnit.create(name, props -> Shade.create(),
+                    (lookup, props) -> new OSMShadeParser(
+                            lookup.getEnumEncodedValue(Shade.KEY, Shade.class))
+            );
+        else if (ShadePercentage.KEY.equals(name))
+            return ImportUnit.create(name, props -> ShadePercentage.create(),
+                    (lookup, props) -> new OSMShadePercentageParser(
+                            lookup.getIntEncodedValue(ShadePercentage.KEY))
+            );
         else if (Hgv.KEY.equals(name))
             return ImportUnit.create(name, props -> Hgv.create(),
                     (lookup, props) -> new OSMHgvParser(

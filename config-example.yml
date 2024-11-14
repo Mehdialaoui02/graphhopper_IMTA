@@ -94,7 +94,7 @@ graphhopper:
   #           hazmat,hazmat_tunnel,hazmat_water,lanes,osm_way_id,toll,track_type,mtb_rating,hike_rating,horse_rating,
   #           country,curvature,average_slope,max_slope,car_temporal_access,bike_temporal_access,foot_temporal_access
   # graph.encoded_values: car_access, car_average_speed
-  graph.encoded_values: foot_temporal_access, foot_access, hike_rating, foot_priority, foot_average_speed, average_slope, mtb_rating, shade, shade_percentage
+  graph.encoded_values: foot_temporal_access, foot_access, hike_rating, foot_priority, foot_average_speed, average_slope, mtb_rating, shade, shade_percentage, country, road_class, foot_road_access
 
   #### Speed, hybrid and flexible mode ####
 

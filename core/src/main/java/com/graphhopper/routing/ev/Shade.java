@@ -3,7 +3,8 @@ package com.graphhopper.routing.ev;
 import com.graphhopper.util.Helper;
 
 public enum Shade {
-    YES, NO;
+    YES, NO, PARTIAL, MISSING, OTHER;
+
     public static final String KEY = "shade";
 
     public static EnumEncodedValue<Shade> create() {
@@ -17,13 +18,11 @@ public enum Shade {
 
     public static Shade find(String name) {
         if (name == null)
-            return NO;
+            return MISSING;
         try {
-            // public and permissive will be converted into "yes"
             return Shade.valueOf(Helper.toUpperCase(name));
         } catch (IllegalArgumentException ex) {
-            return NO;
+            return OTHER;
         }
     }
-
 }

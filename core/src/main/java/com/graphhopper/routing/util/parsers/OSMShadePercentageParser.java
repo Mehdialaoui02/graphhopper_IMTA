@@ -15,7 +15,8 @@ public class OSMShadePercentageParser implements TagParser {
     @Override
     public void handleWayTags(int edgeId, EdgeIntAccess edgeIntAccess, ReaderWay readerWay, IntsRef relationFlags) {
         String percentage = readerWay.getTag("shade:percentage");
-        int shade_percentage = -1;
+        String shade = readerWay.getTag("shade");
+        int shade_percentage = 101; // Missing input in OSM
         if (percentage != null) {
             try {
                 if (percentage.endsWith("%")) {
@@ -27,7 +28,17 @@ public class OSMShadePercentageParser implements TagParser {
                 System.err.println(ex.getMessage());
             }
         }
-        if (shade_percentage >= 0 && shade_percentage <= 100) {
+        else if (shade != null) {
+            System.out.println("shade: " + shade);
+            shade = shade.toLowerCase();
+            shade_percentage = switch (shade) {
+                case "yes" -> 100;
+                case "no" -> 0;
+                case "partial" -> 50;
+                default -> shade_percentage; // In case shade has a different value we keep 404
+            };
+        }
+        if ((shade_percentage >= 0 && shade_percentage <= 100) || shade_percentage == 101) {
             shadePercentageEnc.setInt(false, edgeId, edgeIntAccess, shade_percentage);
         }
     }

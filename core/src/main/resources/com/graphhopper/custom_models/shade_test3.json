@@ -1,0 +1,18 @@
+{
+  "distance_influence": 100,
+  "priority": [
+    {
+      "if": "shade == NO",
+      "multiply_by": "0.8"
+    },
+    {
+      "else_if": "shade == PARTIAL",
+      "multiply_by": "1.2"
+    },
+    {
+      "else_if": "shade == YES",
+      "multiply_by": "1.4"
+    }
+  ],
+  "speed": []
+}

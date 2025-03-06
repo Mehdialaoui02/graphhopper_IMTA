@@ -40,20 +40,8 @@ graphhopper:
     - name: foot
       custom_model_files: [foot.json, foot_elevation.json]
 
-    - name: shade_percentage_test1
+    - name: observation_profile
       custom_model_files: [foot.json, shade_percentage_test1.json]
-
-    - name: shade_percentage_test2
-      custom_model_files: [foot.json, shade_percentage_test2.json]
-
-    - name: shade_test1
-      custom_model_files: [ foot.json, shade_test1.json ]
-
-    - name: shade_test2
-      custom_model_files: [ foot.json, shade_test2.json ]
-
-    - name: shade_test3
-      custom_model_files: [ foot.json, shade_test3.json ]
 
   #
   #    - name: bike
@@ -89,11 +77,7 @@ graphhopper:
     # - profile: car
     - profile: foot
     - profile: car
-    - profile: shade_percentage_test1
-    - profile: shade_percentage_test2
-    - profile: shade_test1
-    - profile: shade_test2
-    - profile: shade_test3
+    - profile: observation_profile
 
   # Hybrid mode:
   # Similar to speed mode, the hybrid mode (Landmarks, LM) also speeds up routing by doing calculating auxiliary data
